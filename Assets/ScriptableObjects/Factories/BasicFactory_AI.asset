@@ -18,7 +18,7 @@ MonoBehaviour:
   BuildDuration: 20
   MaxHP: 5000
   NbSpawnSlots: 10
-  SpawnRadius: 12
+  SpawnRadius: 30
   RadiusOffset: 4
   AvailableUnits:
   - {fileID: 1707494665243283662, guid: a37ed104a5fa3b94ea651e2746a3cf75, type: 3}

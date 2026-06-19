@@ -229,10 +229,6 @@ public sealed class PlayerController : UnitController
                 (SelectedUnitList[0].gameObject.transform.position +
                 SelectedUnitList[0].gameObject.transform.TransformDirection(new Vector3(i *6f, 0f, 0f)));
             }
-            //if (i + 1 >= formationOffsets.Length)
-            //    j = 0;
-            //else
-            //    j++;
 
         }
     }
@@ -355,7 +351,7 @@ public sealed class PlayerController : UnitController
             Factory factory = raycastInfo.transform.GetComponent<Factory>();
             if (factory != null)
             {
-                if (factory.GetTeam() == Team && SelectedFactory != factory)
+                if (factory.GetTeam() == Team )
                 {
                     UnselectCurrentFactory();
                     SelectFactory(factory);

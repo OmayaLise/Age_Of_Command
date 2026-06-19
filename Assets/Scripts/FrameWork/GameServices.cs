@@ -19,7 +19,7 @@ public class GameServices : MonoBehaviour
     float NonPlayableBorder = 100f;
 
     [SerializeField, Tooltip("Playable bounds size if no terrain is found")]
-    float DefaultPlayableBoundsSize = 100f;
+    float DefaultPlayableBoundsSize = 500f;
 
     static GameServices Instance = null;
 

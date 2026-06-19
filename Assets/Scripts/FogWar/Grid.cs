@@ -36,7 +36,9 @@ public class Grid
     public bool IsValue(int value, int i, int j)
     {
         int index = i + j * Width;
-        return (index < Values.Length) && (Values[index] & value) > 0;
+        if(Values!= null && Values.Length > 0 && index > 0)
+            return (index < Values.Length) && (Values[index] & value) > 0;
+        return false;
     }
 
     public void Clear()
