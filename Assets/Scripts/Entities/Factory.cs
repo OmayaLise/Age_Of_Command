@@ -10,7 +10,7 @@ public sealed class Factory : BaseEntity
     GameObject[] UnitPrefabs = null;
     GameObject[] FactoryPrefabs = null;
     int RequestedEntityBuildIndex = -1;
-    Image BuildGaugeImage;
+    [SerializeField] Image BuildGaugeImage;
     float CurrentBuildDuration = 0f;
     float EndBuildDate = 0f;
     int SpawnCount = 0;
@@ -45,13 +45,11 @@ public sealed class Factory : BaseEntity
     {
         base.Awake();
 
-        //TEMP DEBUG TO DO
         if(tag == "Red")
         {
             Team = ETeam.Red;
         }
 
-        BuildGaugeImage = transform.Find("Canvas/BuildProgressImage").GetComponent<Image>();
         if (BuildGaugeImage)
         {
             BuildGaugeImage.fillAmount = 0f;
@@ -100,7 +98,6 @@ public sealed class Factory : BaseEntity
                 break;
 
             case State.UnderConstruction:
-                // $$$ TODO : improve construction progress rendering
                 if (Time.time > EndBuildDate)
                 {
                     CurrentState = State.Available;
@@ -125,7 +122,7 @@ public sealed class Factory : BaseEntity
                     }
                 }
                 else if (BuildGaugeImage)
-                    BuildGaugeImage.fillAmount = 1f - (EndBuildDate - Time.time) / CurrentBuildDuration;
+                    BuildGaugeImage.fillAmount = Mathf.Clamp01(1f - (EndBuildDate - Time.time) / CurrentBuildDuration);
                 break;
         }
     }
